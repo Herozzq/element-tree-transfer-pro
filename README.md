@@ -1,8 +1,11 @@
 ### 插件说明
-该插件是在vue2和element环境下的简易树穿梭框组件
-点击 <a href="https://herozzq.github.io/element-mini-tree-transfer/#/">🥳 立即体验 🥳
-安装：npm i element-mini-tree-transfer
-使用方法如下案例
+- 该插件是在vue2和element环境下的简易树穿梭框组件
+
+<p>点击 <a href="https://herozzq.github.io/element-mini-tree-transfer/#/">🥳 立即体验 🥳</p>
+
+- 安装：npm i element-mini-tree-transfer
+
+- 使用方法如下案例
 
 
 ```html
