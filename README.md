@@ -1,5 +1,7 @@
 ### 插件说明
 该插件是在vue2和element环境下的简易树穿梭框组件
+点击 <a href="https://herozzq.github.io/element-mini-tree-transfer/#/">🥳 立即体验 🥳
+安装：npm i element-mini-tree-transfer
 使用方法如下案例
 
 
@@ -207,3 +209,6 @@
 | clearChecked | 清除选中节点 |
 | getChecked | 获取选中数据 |
 | setChecked | 设置选中数据 function(Keys = []) |
+
+
+如果觉得有帮到你，可以点一个 star🌟 支持一下～
