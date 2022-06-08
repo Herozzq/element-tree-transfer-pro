@@ -1,11 +1,11 @@
 {
-  "name": "element-mini-tree-transfer",
-  "version": "1.0.2",
+  "name": "element-tree-transfer-pro",
+  "version": "1.0.0",
   "main": "tree-transfer.vue",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": ["element-mini-tree-transfer","tree-transfer"],
+  "keywords": ["element-tree-transfer-pro","element-tree-transfer","tree-transfer","element树穿梭框"],
   "author": "",
   "license": "ISC"
 }
