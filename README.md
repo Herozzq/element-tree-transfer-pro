@@ -138,4 +138,4 @@
 | left-check-change | 左侧列表元素被用户选中 / 取消选中时触发 | 当前被选中的元素的 key 数组、选中状态发生变化的元素的 key 数组 |
 | right-check-change | 右侧列表元素被用户选中 / 取消选中时触发 | 当前被选中的元素的 key 数组、选中状态发生变化的元素的 key 数组 |
 
-如果觉得好用，可以点一个 star🌟 支持一下～ <a href="https://github.com/Herozzq/element-mini-tree-transfer">github地址</a>
+如果觉得好用，可以点一个 star🌟 支持一下～
