@@ -10,7 +10,7 @@
 
 ### 范例展示
 
-<p>点击 <a href="https://herozzq.github.io/element-mini-tree-transfer/#/">立即体验</a></p>
+<p>点击 <a href="https://herozzq.github.io/element-tree-transfer-pro/#/">立即体验</a></p>
 
 ```html
 <template>
