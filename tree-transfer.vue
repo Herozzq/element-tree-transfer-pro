@@ -459,11 +459,6 @@ export default {
       for (const item of arr) {
         this.treeLength++;
         this.treeKeys.push(item[this.nodeKey]);
-        if (this.isRadio && item.children && item.children.length > 0) {
-          item.disabled = true;
-        } else {
-          item.disabled = false;
-        }
         if (item.children) {
           this.setTreeMsg(item.children);
         }
