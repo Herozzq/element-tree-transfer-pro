@@ -6,7 +6,7 @@
 
 ### 安装方法
 
-* npm i element-mini-tree-transfer
+* npm i element-tree-transfer-pro
 
 ### 范例展示
 
