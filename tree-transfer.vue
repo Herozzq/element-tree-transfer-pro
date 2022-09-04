@@ -347,7 +347,6 @@ export default {
       } else {
         currentKeys = this.findChildKey([nodeObj]);
       }
-      console.log("left-check-change", this.treeCheckKeys, currentKeys);
       this.$nextTick(() => {
         this.$emit("left-check-change", this.treeCheckKeys, currentKeys);
       });
