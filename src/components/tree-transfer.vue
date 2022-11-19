@@ -7,6 +7,7 @@
           :indeterminate="treeIndeterminate"
           v-model="treeCheckAll"
           @change="treeAllBoxChange"
+          :disabled="isRadio"
         >
         </el-checkbox>
         <span>{{ treeTitle }}</span>
@@ -76,9 +77,9 @@
         >
         </el-checkbox>
         <span>{{ listTitle }}</span>
-        <span class="total"
-          >{{ rightList.length }}/{{ listCheckKey.length }}</span
-        >
+        <span class="total">
+          {{ rightList.length }}/{{ listCheckKey.length }}
+        </span>
       </div>
       <div class="transfer-main">
         <el-input
@@ -340,6 +341,7 @@ export default {
       );
       if (this.isRadio) {
         this.setChecked([nodeObj.id]);
+        this.treeCheckKeys = [nodeObj.id];
       }
       let currentKeys = [];
       if (this.fatherChoose) {
@@ -405,6 +407,10 @@ export default {
       } else {
         let chooseId = this.rightList.map((item) => item[this.nodeKey]);
         this.chooseDisable(chooseId, this.treeFromData);
+        //筛选掉不被选中的父节点
+        this.treeCheckKeys = this.treeCheckKeys.filter((item) =>
+          chooseId.includes(item)
+        );
       }
       this.$emit("change", this.treeCheckKeys, "right", movedKeys);
     },
