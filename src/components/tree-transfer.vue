@@ -303,6 +303,9 @@ export default {
       }
       if (newval == "") {
         this.rightList = this.archiveFirst;
+        this.rightList = this.rightList.filter(
+          (item) => this.treeCheckKeys.includes(item[this.nodeKey]) && item
+        );
       }
       let reg = RegExp(newval);
       this.rightList = this.rightList.filter((item) => reg.test(item.label));
@@ -438,24 +441,23 @@ export default {
       const movedKeys = [...new Set(this.treeCheckKeys)].filter((item) =>
         new Set(this.listCheckKey).has(item)
       );
+      // 树选中节点和列表选中节点的差集,筛选出剩余的key
+      this.treeCheckKeys = [...new Set(this.treeCheckKeys)].filter(
+        (item) => !new Set(this.listCheckKey).has(item)
+      );
       this.rightList = this.listCheckAll
         ? []
         : this.rightList.filter(
             (item) => !this.listCheckKey.includes(item[this.nodeKey]) && item
           );
-      let chooseId = this.rightList.map((item) => item[this.nodeKey]);
-      this.chooseDisable(chooseId, this.treeFromData);
+      this.chooseDisable(this.treeCheckKeys, this.treeFromData);
       if (this.rightList.length == 0) {
         this.treeIndeterminate = false;
         this.treeCheckAll = false;
       }
-      // 树选中节点和列表选中节点的差集,筛选出剩余的key
-      this.treeCheckKeys = [...new Set(this.treeCheckKeys)].filter(
-        (item) => !new Set(this.listCheckKey).has(item)
-      );
       this.listCheckKey = [];
       // 处理完毕取消选中
-      this.setChecked(chooseId);
+      this.setChecked(this.treeCheckKeys);
       this.$emit("change", this.treeCheckKeys, "left", movedKeys);
     },
 
