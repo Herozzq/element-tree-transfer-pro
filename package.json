@@ -1,6 +1,6 @@
 {
   "name": "element-tree-transfer-pro",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "main": "tree-transfer.vue",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
