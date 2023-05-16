@@ -103,7 +103,7 @@
             :label="item[nodeKey]"
             :key="item[nodeKey]"
           >
-            {{ item.label }}
+          {{ item[defaultProps.label] }}
           </el-checkbox>
         </el-checkbox-group>
         <div class="slot-footer" v-if="$slots['right-footer']">

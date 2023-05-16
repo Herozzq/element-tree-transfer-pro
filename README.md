@@ -148,5 +148,8 @@
 1.0.4
 * 修复右侧搜索完回穿时异常的问题
 
+1.0.5
+* 修复el-tree 配置项自定义label展示错误问题
+
 
 如果觉得好用，可以点一个 star 支持一下～ <a href="https://github.com/Herozzq/element-tree-transfer-pro">github地址</a>
