@@ -221,6 +221,11 @@ export default {
       type: Array,
       default: () => [],
     },
+    // 右侧列表根据选择节点先后排序
+    listSortFifo: {
+      type: Boolean,
+      default: true,
+    },
   },
   computed: {
     // 左侧数据
@@ -404,7 +409,16 @@ export default {
           return item;
         }
       });
-      this.rightList = [...this.rightList, ...arrayDeWeighting];
+      /**
+       * 右侧列表排序属性：listSortFifo
+       * 默认值：true，右侧列表中结点根据左侧树选中结点先后顺序排序
+       * 可选值：false，右侧列表中结点根据左侧树结构排序
+       */
+      if (this.listSortFifo) {
+        this.rightList = [...this.rightList, ...arrayDeWeighting];
+      } else {
+        this.rightList = [...arrayCheckedNodes];
+      }
       if (this.isRadio) {
         this.setDisable(this.treeFromData);
       } else {
@@ -509,7 +523,12 @@ export default {
         if (choose) {
           this.$set(item, "disabled", true);
         } else {
-          this.$set(item, "disabled", false);
+          /**
+           * 默认禁用的左侧树节点，不受来回穿梭的操作影响
+           */
+          if (!item.disabled || this.$refs["from-tree"].getCheckedNodes().includes(item)) {
+            this.$set(item, "disabled", false);
+          }
         }
         if (this.isRadio && !this.fatherChoose && item.children.length > 0) {
           this.$set(item, "disabled", true);

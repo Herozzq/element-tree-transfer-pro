@@ -115,6 +115,7 @@
 | filter-method | 自定义搜索方法 | function | — | — |
 | titles | 自定义标题 | array | — | ['源数据', '目标列表'] |
 | button-texts | 自定义按钮文案 | array | — | [ ] |
+| listSortFifo | 右侧列表排序方式：默认值：true，右侧列表中结点根据左侧树选中结点先后顺序排序；可选值：false，右侧列表中结点根据左侧树结构排序 | boolean | — | true |
 
 ### Slot
 
@@ -150,6 +151,10 @@
 
 1.0.5
 * 修复el-tree 配置项自定义label展示错误问题
+
+1.0.6
+* 修复当左侧存在禁用结点，从右侧移动到左侧时会把左侧未选中但禁用的结点全部激活
+* 新增右侧列表排序属性：listSortFifo
 
 
 如果觉得好用，可以点一个 star 支持一下～ <a href="https://github.com/Herozzq/element-tree-transfer-pro">github地址</a>
