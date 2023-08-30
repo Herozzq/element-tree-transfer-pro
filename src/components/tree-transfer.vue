@@ -509,7 +509,17 @@ export default {
         if (choose) {
           this.$set(item, "disabled", true);
         } else {
-          this.$set(item, "disabled", false);
+          /**
+           * bug修复：当左侧存在禁用结点，从右侧移动到左侧时会把左侧未选中但禁用的结点全部激活
+           * bug修复后功能：
+           * 从左侧树移动到右侧列表时：
+           * 原来树结点是 disabled 状态的，保持不变
+           * 从右侧列表移动到左侧树时：
+           * 原来树中选中并禁用的结点，右侧移动回左侧后，取消选中和 disabled 状态
+           */
+          if (!item.disabled || this.$refs["from-tree"].getCheckedNodes().includes(item)) {
+            this.$set(item, "disabled", false);
+          }
         }
         if (this.isRadio && !this.fatherChoose && item.children.length > 0) {
           this.$set(item, "disabled", true);
