@@ -115,6 +115,7 @@
 | filter-method | 自定义搜索方法 | function | — | — |
 | titles | 自定义标题 | array | — | ['源数据', '目标列表'] |
 | button-texts | 自定义按钮文案 | array | — | [ ] |
+| listSortFifo | 右侧列表排序方式：默认值：true，右侧列表中结点根据左侧树选中结点先后顺序排序；可选值：false，右侧列表中结点根据左侧树结构排序 | boolean | — | true |
 
 ### Slot
 
