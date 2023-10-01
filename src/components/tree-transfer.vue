@@ -313,7 +313,7 @@ export default {
         );
       }
       let reg = RegExp(newval);
-      this.rightList = this.rightList.filter((item) => reg.test(item.label));
+      this.rightList = this.rightList.filter((item) => reg.test(item[this.defaultProps.label]));
     },
 
     // 监视默认选中
@@ -480,8 +480,8 @@ export default {
       for (const item of arr) {
         this.treeLength++;
         this.treeKeys.push(item[this.nodeKey]);
-        if (item.children) {
-          this.setTreeMsg(item.children);
+        if (item[this.defaultProps.children]) {
+          this.setTreeMsg(item[this.defaultProps.children]);
         }
       }
     },
@@ -497,8 +497,8 @@ export default {
         if (this.defaultCheckedKeys.includes(item[this.nodeKey])) {
           this.rightList.push(item);
         }
-        if (item.children) {
-          this.findItem(item.children);
+        if (item[this.defaultProps.children]) {
+          this.findItem(item[this.defaultProps.children]);
         }
       }
     },
@@ -506,11 +506,11 @@ export default {
     //找出子节点的key
     findChildKey(arr, result = []) {
       for (const item of arr) {
-        if (item.children.length == 0) {
+        if (item[this.defaultProps.children].length == 0) {
           result.push(item[this.nodeKey]);
         }
-        if (item.children) {
-          this.findChildKey(item.children, result);
+        if (item[this.defaultProps.children]) {
+          this.findChildKey(item[this.defaultProps.children], result);
         }
       }
       return result;
@@ -530,11 +530,11 @@ export default {
             this.$set(item, "disabled", false);
           }
         }
-        if (this.isRadio && !this.fatherChoose && item.children.length > 0) {
+        if (this.isRadio && !this.fatherChoose && item[this.defaultProps.children].length > 0) {
           this.$set(item, "disabled", true);
         }
-        if (item.children) {
-          this.chooseDisable(value, item.children);
+        if (item[this.defaultProps.children]) {
+          this.chooseDisable(value, item[this.defaultProps.children]);
         }
       }
     },
@@ -543,8 +543,8 @@ export default {
     setDisable(arr) {
       for (const item of arr) {
         this.$set(item, "disabled", true);
-        if (item.children) {
-          this.setDisable(item.children);
+        if (item[this.defaultProps.children]) {
+          this.setDisable(item[this.defaultProps.children]);
         }
       }
     },

@@ -21,7 +21,7 @@
 </template>
 
 <script>
-    import treeTransfer from 'element-mini-tree-transfer'
+    import treeTransfer from 'element-tree-transfer-pro'
     const tree = [{
             label: "A部门",
             id: "1",
@@ -109,7 +109,7 @@
 | expand-on-click-node | 是否在点击节点的时候展开或者收缩节点 | boolean | — | true |
 | father-choose | 是否严格的遵循父子不互相关联的做法, 父节点是否可被选择穿梭 | boolean | — | false |
 | isRadio | 左侧数据源是否为单选 | boolean | — | false |
-| openAll| 树节点是否默认展开 | boolean | — | false |
+| openAll| 树节点是否默认展开 | boolean | — | true |
 | filterable | 是否可搜索 | boolean | — | false |
 | filter-placeholder | 搜索框占位符 | string | — | 请输入搜索内容 |
 | filter-method | 自定义搜索方法 | function | — | — |
@@ -154,6 +154,11 @@
 1.0.6
 * 修复当左侧存在禁用结点，从右侧移动到左侧时会把左侧未选中但禁用的结点全部激活
 * 新增右侧列表排序属性：listSortFifo
+
+1.0.7
+* 修复el-tree 配置项自定义children失效问题
+* 修复文档描述错误
+
 
 
 
