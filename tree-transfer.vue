@@ -103,7 +103,7 @@
             :label="item[nodeKey]"
             :key="item[nodeKey]"
           >
-          {{ item[defaultProps.label] }}
+            {{ item[defaultProps.label] }}
           </el-checkbox>
         </el-checkbox-group>
         <div class="slot-footer" v-if="$slots['right-footer']">
@@ -313,7 +313,9 @@ export default {
         );
       }
       let reg = RegExp(newval);
-      this.rightList = this.rightList.filter((item) => reg.test(item[this.defaultProps.label]));
+      this.rightList = this.rightList.filter((item) =>
+        reg.test(item[this.defaultProps.label])
+      );
     },
 
     // 监视默认选中
@@ -482,6 +484,15 @@ export default {
         this.treeKeys.push(item[this.nodeKey]);
         if (item[this.defaultProps.children]) {
           this.setTreeMsg(item[this.defaultProps.children]);
+          // 如果开启单选且父节点不可穿梭的情况下禁用所有父节点
+          if (
+            this.isRadio &&
+            !this.fatherChoose &&
+            item[this.defaultProps.children] &&
+            item[this.defaultProps.children].length > 0
+          ) {
+            this.$set(item, "disabled", true);
+          }
         }
       }
     },
@@ -506,7 +517,10 @@ export default {
     //找出子节点的key
     findChildKey(arr, result = []) {
       for (const item of arr) {
-        if (item[this.defaultProps.children].length == 0) {
+        if (
+          item[this.defaultProps.children] &&
+          item[this.defaultProps.children].length == 0
+        ) {
           result.push(item[this.nodeKey]);
         }
         if (item[this.defaultProps.children]) {
@@ -526,11 +540,22 @@ export default {
           /**
            * 默认禁用的左侧树节点，不受来回穿梭的操作影响
            */
-          if (!item.disabled || this.$refs["from-tree"].getCheckedNodes().includes(item)) {
+          if (
+            !item.disabled ||
+            this.$refs["from-tree"].getCheckedNodes().includes(item)
+          ) {
+            this.$set(item, "disabled", false);
+          }
+          if (this.isRadio) {
             this.$set(item, "disabled", false);
           }
         }
-        if (this.isRadio && !this.fatherChoose && item[this.defaultProps.children].length > 0) {
+        if (
+          this.isRadio &&
+          !this.fatherChoose &&
+          item[this.defaultProps.children] &&
+          item[this.defaultProps.children].length > 0
+        ) {
           this.$set(item, "disabled", true);
         }
         if (item[this.defaultProps.children]) {

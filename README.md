@@ -159,7 +159,9 @@
 * 修复el-tree 配置项自定义children失效问题
 * 修复文档描述错误
 
-
+1.0.8
+* 修复is-radio=true，father-choose=true时候穿梭禁用异常问题
+* 修复在没有默认值的情况下is-radio=true，father-choose=false父节点初始化没有禁用的问题
 
 
 如果觉得好用，可以点一个 star 支持一下～ <a href="https://github.com/Herozzq/element-tree-transfer-pro">github地址</a>
