@@ -163,5 +163,8 @@
 * 修复is-radio=true，father-choose=true时候穿梭禁用异常问题
 * 修复在没有默认值的情况下is-radio=true，father-choose=false父节点初始化没有禁用的问题
 
+1.0.9
+* 解决在页面初始化后给左侧树赋值，导致左侧树全选失效问题
+
 
 如果觉得好用，可以点一个 star 支持一下～ <a href="https://github.com/Herozzq/element-tree-transfer-pro">github地址</a>
