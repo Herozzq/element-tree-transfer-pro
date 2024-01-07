@@ -271,6 +271,12 @@ export default {
     },
   },
   watch: {
+    // 左侧树组件里的数据
+     treeFromData(val) {
+      if (val.length > 0) {
+        this.setTreeMsg(val);
+      }
+    },
     // 左侧树选中的key
     treeCheckKeys(val) {
       if (val.length > 0) {
@@ -343,6 +349,7 @@ export default {
   mounted() {
     this.setTreeMsg(this.treeFromData);
   },
+
   methods: {
     // 左侧树选中事件
     fromTreeChecked(nodeObj) {
